@@ -1,2 +1,1 @@
-# plovustu
-PlovÜstü əlaqəli linklər
+
