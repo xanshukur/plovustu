@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Sosial Linklər - Plovüstü</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: #fcf5e5;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .vertical-links {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+    }
+    .icon-oval {
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin: 0 auto;
+      transition: transform 0.2s;
+      font-size: 2.3rem;
+      background: #fff;
+      overflow: hidden;
+    }
+    .icon-tiktok {
+      background: linear-gradient(135deg, #010101 70%, #25f4ee 100%);
+      color: #fff;
+    }
+    .icon-instagram {
+      background: radial-gradient(circle at 30% 110%, #fdc468 0%, #df4996 100%);
+      color: #fff;
+    }
+    .icon-threads {
+      background: #000;
+      color: #fff;
+    }
+    .icon-maps {
+      background: #34a853;
+      color: #fff;
+    }
+    .icon-waze {
+      background: #33ccff;
+      color: #fff;
+    }
+    .icon-boltfood {
+      background: #32d074;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-wolt {
+      background: #009de0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-drive {
+      background: #fff;
+      border: 2px solid #f4b400;
+      color: #4285f4;
+      position: relative;
+    }
+    .icon-drive svg {
+      width: 38px;
+      height: 38px;
+      display: block;
+    }
+    .icon-boltfood svg, .icon-wolt svg {
+      width: 44px;
+      height: 44px;
+      display: block;
+    }
+    .vertical-links a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-family: sans-serif;
+      font-size: 1rem;
+      color: #222;
+    }
+    .vertical-links a span {
+      margin-top: 3px;
+      font-size: 0.95rem;
+    }
+    .icon-oval:hover {
+      transform: scale(1.08) rotate(-6deg);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.11);
+    }
+    .menu-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #a86a1c;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="vertical-links">
+    <!-- Google Drive Menü - İndiyə qədərki siyahıda ən yuxarıda -->
+    <a href="https://drive.google.com/drive/u/4/folders/157WPY7RhOWpZxkBOlVOOy3wyvTFDQfN7" target="_blank" title="Google Drive">
+      <div class="icon-oval icon-drive">
+        <svg viewBox="0 0 48 48">
+          <polygon fill="#fbbc04" points="21,6 3,39 13.5,39 31.5,6"/>
+          <polygon fill="#4285f4" points="34.5,39 45,39 27,6 16.5,6"/>
+          <polygon fill="#34a853" points="3,39 24,39 34.5,39 13.5,39"/>
+        </svg>
+      </div>
+      <span class="menu-label">Menyu</span>
+    </a>
+    <!-- TikTok -->
+    <a href="https://www.tiktok.com/@plovustu?_t=ZS-8x1fy8x06Nt&_r=1" target="_blank" title="TikTok">
+      <div class="icon-oval icon-tiktok">
+        <i class="fab fa-tiktok"></i>
+      </div>
+      <span>TikTok</span>
+    </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/plovustu" target="_blank" title="Instagram">
+      <div class="icon-oval icon-instagram">
+        <i class="fab fa-instagram"></i>
+      </div>
+      <span>Instagram</span>
+    </a>
+    <!-- Threads -->
+    <a href="https://www.threads.com/@plovustu" target="_blank" title="Threads">
+      <div class="icon-oval icon-threads">
+        <i class="fab fa-at"></i>
+      </div>
+      <span>Threads</span>
+    </a>
+    <!-- Google Maps -->
+    <a href="https://maps.app.goo.gl/M3nJq2KtZuyHvEeK7" target="_blank" title="Google Maps">
+      <div class="icon-oval icon-maps">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <span>Google Maps</span>
+    </a>
+    <!-- Waze -->
+    <a href="https://waze.com/ul/htp5my0pcn" target="_blank" title="Waze">
+      <div class="icon-oval icon-waze">
+        <i class="fab fa-waze"></i>
+      </div>
+      <span>Waze</span>
+    </a>
+    <!-- Bolt Food (Rəsmi SVG Logo) -->
+    <a href="https://food.bolt.eu/az-AZ/335/p/144771-plov%C3%BCst%C3%BC" target="_blank" title="Bolt Food">
+      <div class="icon-oval icon-boltfood">
+        <!-- Bolt Food SVG -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bolt Food logo">
+          <rect width="64" height="64" rx="16" fill="#32D074"/>
+          <g>
+            <text x="50%" y="38%" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="17" fill="#fff" font-weight="bold" dy="0.35em">Bolt</text>
+            <text x="50%" y="68%" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="17" fill="#fff" font-weight="bold" dy="0.35em">Food</text>
+          </g>
+        </svg>
+      </div>
+      <span>Bolt Food</span>
+    </a>
+    <!-- Wolt (Rəsmi SVG Script Logo) -->
+    <a href="https://wolt.com/az/aze/baku/restaurant/plovustu" target="_blank" title="Wolt">
+      <div class="icon-oval icon-wolt">
+        <!-- Wolt SVG -->
+        <svg viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg" aria-label="Wolt logo">
+          <rect width="120" height="48" rx="14" fill="#009DE0"/>
+          <text x="50%" y="58%" text-anchor="middle" font-family="'Pacifico', 'Comic Sans MS', cursive, sans-serif" font-size="28" fill="#fff">Wolt</text>
+        </svg>
+      </div>
+      <span>Wolt</span>
+    </a>
+  </div>
+</body>
+</html>
