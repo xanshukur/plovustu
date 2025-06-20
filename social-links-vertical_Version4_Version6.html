@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Plovüstü Sosial Linklər</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      /* Restoran bəzəyi üçün yumşaq naxışlar və gradient */
+      background: repeating-linear-gradient(
+        135deg, #f9ecd6 0 40px, #faeedc 40px 80px
+      ), linear-gradient(120deg, #fffbe7 0%, #ffe7ba 100%);
+      position: relative;
+    }
+    /* Bəzək üçün overlay ornament */
+    .decoration {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Loqoların ümumi konteyneri */
+    .logo-grid-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      z-index: 1;
+      position: relative;
+    }
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 32px 28px;
+      background: rgba(255,255,255,0.75);
+      padding: 36px 24px;
+      border-radius: 28px;
+      box-shadow: 0 4px 40px 0 rgba(180,140,60,0.08);
+      max-width: 900px;
+      margin: 0 10px;
+    }
+    .logo-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #262626;
+      gap: 12px;
+      font-size: 1.06rem;
+      font-weight: 500;
+      transition: transform 0.15s, box-shadow 0.18s;
+    }
+    .logo-link:focus,
+    .logo-link:hover {
+      transform: translateY(-6px) scale(1.06);
+      box-shadow: 0 6px 24px rgba(80,48,12,0.14);
+      z-index: 2;
+    }
+    .logo-oval {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(130, 90, 20, 0.07);
+      margin-bottom: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Fərqli loqo arxa fonları */
+    .logo-drive { border: 2px solid #f4b400; }
+    .logo-tiktok { background: linear-gradient(135deg, #010101 70%, #25f4ee 100%); color: #fff; }
+    .logo-instagram { background: radial-gradient(circle at 30% 110%, #fdc468 0%, #df4996 100%); color: #fff;}
+    .logo-threads { background: #000; color: #fff;}
+    .logo-maps { background: #34a853; color: #fff;}
+    .logo-waze { background: #33ccff; color: #fff;}
+    .logo-boltfood { background: #32d074; }
+    .logo-wolt { background: #009de0; }
+
+    /* SVG ölçüləri */
+    .logo-oval svg { width: 52px; height: 52px; display: block;}
+    .logo-boltfood svg, .logo-wolt svg { width: 56px; height: 56px;}
+    .logo-drive svg { width: 44px; height: 44px;}
+
+    /* Menyu başlığı */
+    .menu-label {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #a86a1c;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    /* Cihaz üçün adaptasiya */
+    @media (max-width: 1000px) {
+      .logo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .logo-grid { grid-template-columns: 1fr 1fr; grid-gap: 18px 10px; padding: 16px 4px;}
+      .logo-oval { width: 60px; height: 60px; }
+      .logo-oval svg { width: 33px; height: 33px;}
+      .logo-boltfood svg, .logo-wolt svg { width: 38px; height: 38px;}
+      .logo-drive svg { width: 28px; height: 28px;}
+    }
+    @media (max-width: 450px) {
+      .logo-grid { grid-template-columns: 1fr; }
+      .logo-link { font-size: 0.97rem;}
+      .logo-oval { width: 54px; height: 54px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Restoran tipli bəzək (dekorativ SVG overlay) -->
+  <svg class="decoration" width="100vw" height="100vh">
+    <ellipse cx="85%" cy="8%" rx="180" ry="22" fill="#ffd98a" fill-opacity="0.18"/>
+    <ellipse cx="12%" cy="92%" rx="110" ry="18" fill="#ffd98a" fill-opacity="0.13"/>
+    <ellipse cx="50%" cy="50%" rx="300" ry="48" fill="#ffe3b3" fill-opacity="0.10"/>
+    <ellipse cx="60%" cy="20%" rx="60" ry="10" fill="#f9e1b8" fill-opacity="0.18"/>
+    <ellipse cx="25%" cy="33%" rx="44" ry="7" fill="#ffda90" fill-opacity="0.10"/>
+  </svg>
+  <div class="logo-grid-container">
+    <div class="logo-grid">
+      <!-- Menyu (Google Drive) -->
+      <a href="https://drive.google.com/drive/u/4/folders/157WPY7RhOWpZxkBOlVOOy3wyvTFDQfN7" class="logo-link" target="_blank" title="Menyu">
+        <span class="logo-oval logo-drive">
+          <svg viewBox="0 0 48 48">
+            <polygon fill="#fbbc04" points="21,6 3,39 13.5,39 31.5,6"/>
+            <polygon fill="#4285f4" points="34.5,39 45,39 27,6 16.5,6"/>
+            <polygon fill="#34a853" points="3,39 24,39 34.5,39 13.5,39"/>
+          </svg>
+        </span>
+        <span class="menu-label">Menyu</span>
+      </a>
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@plovustu?_t=ZS-8x1fy8x06Nt&_r=1" class="logo-link" target="_blank" title="TikTok">
+        <span class="logo-oval logo-tiktok">
+          <i class="fab fa-tiktok" style="font-size:2.2em"></i>
+        </span>
+        <span>TikTok</span>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/plovustu" class="logo-link" target="_blank" title="Instagram">
+        <span class="logo-oval logo-instagram">
+          <i class="fab fa-instagram" style="font-size:2.2em"></i>
+        </span>
+        <span>Instagram</span>
+      </a>
+      <!-- Threads -->
+      <a href="https://www.threads.com/@plovustu" class="logo-link" target="_blank" title="Threads">
+        <span class="logo-oval logo-threads">
+          <i class="fab fa-at" style="font-size:2.2em"></i>
+        </span>
+        <span>Threads</span>
+      </a>
+      <!-- Google Maps -->
+      <a href="https://maps.app.goo.gl/M3nJq2KtZuyHvEeK7" class="logo-link" target="_blank" title="Google Maps">
+        <span class="logo-oval logo-maps">
+          <i class="fas fa-map-marker-alt" style="font-size:2.2em"></i>
+        </span>
+        <span>Google Maps</span>
+      </a>
+      <!-- Waze -->
+      <a href="https://waze.com/ul/htp5my0pcn" class="logo-link" target="_blank" title="Waze">
+        <span class="logo-oval logo-waze">
+          <i class="fab fa-waze" style="font-size:2.2em"></i>
+        </span>
+        <span>Waze</span>
+      </a>
+      <!-- Bolt Food (rəsmi SVG logo) -->
+      <a href="https://food.bolt.eu/az-AZ/335/p/144771-plov%C3%BCst%C3%BC" class="logo-link" target="_blank" title="Bolt Food">
+        <span class="logo-oval logo-boltfood">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bolt Food logo">
+            <rect width="64" height="64" rx="16" fill="#32D074"/>
+            <g>
+              <text x="50%" y="38%" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="19" fill="#fff" font-weight="bold" dy="0.35em">Bolt</text>
+              <text x="50%" y="76%" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="19" fill="#fff" font-weight="bold" dy="0.35em">Food</text>
+            </g>
+          </svg>
+        </span>
+        <span>Bolt Food</span>
+      </a>
+      <!-- Wolt (rəsmi SVG script logo) -->
+      <a href="https://wolt.com/az/aze/baku/restaurant/plovustu" class="logo-link" target="_blank" title="Wolt">
+        <span class="logo-oval logo-wolt">
+          <svg viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg" aria-label="Wolt logo">
+            <rect width="120" height="48" rx="14" fill="#009DE0"/>
+            <text x="50%" y="63%" text-anchor="middle" font-family="'Pacifico', 'Comic Sans MS', cursive, sans-serif" font-size="32" fill="#fff">Wolt</text>
+          </svg>
+        </span>
+        <span>Wolt</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
