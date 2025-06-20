@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Plovüstü Sosial Linklər</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      background: #fcf5e5;
+    }
+    /* Background images as decorative elements */
+    .bg-decor {
+      position: fixed;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.13;
+      filter: grayscale(0.2) contrast(0.9);
+      user-select: none;
+      transition: opacity 0.3s;
+    }
+    .bg-main { /* Main mascot, biggest, center */
+      left: 50%;
+      top: 54%;
+      width: 420px; height: 420px;
+      transform: translate(-50%, -55%);
+      opacity: 0.10;
+      filter: grayscale(0.2) contrast(1);
+    }
+    .bg-decor1 { /* Top left, pale green, small */
+      left: -30px; top: 10px;
+      width: 120px; height: auto;
+      opacity: 0.15;
+      filter: hue-rotate(90deg) brightness(1.18);
+    }
+    .bg-decor2 { /* Bottom right, pale orange, vertical */
+      right: -32px; bottom: -18px;
+      width: 170px; height: auto;
+      opacity: 0.13;
+      filter: hue-rotate(10deg) sepia(0.1) brightness(1.11);
+    }
+    .bg-decor3 { /* Top right, blue */
+      right: 16px; top: 26px;
+      width: 90px; height: auto;
+      opacity: 0.13;
+      filter: hue-rotate(200deg) saturate(1.6) brightness(1.13);
+    }
+    .bg-decor4 { /* Bottom left, rotate, green */
+      left: 5px; bottom: 22px;
+      width: 65px; height: auto;
+      transform: rotate(-7deg);
+      opacity: 0.11;
+      filter: hue-rotate(100deg) brightness(1.1);
+    }
+    /* Copilot-generated extra motif 1 (simple cutlery) */
+    .bg-decor5 {
+      left: 40%; top: 5%;
+      width: 80px; height: auto;
+      opacity: 0.08;
+      filter: grayscale(1) brightness(1.04) sepia(0.07);
+      z-index: 0;
+    }
+    /* Copilot-generated extra motif 2 (rice bowl) */
+    .bg-decor6 {
+      right: 10%; bottom: 9%;
+      width: 90px; height: auto;
+      opacity: 0.09;
+      filter: grayscale(0.4) brightness(1.09);
+      z-index: 0;
+    }
+    /* Copilot-generated extra motif 3 (star doodle) */
+    .bg-decor7 {
+      left: 4%; top: 60%;
+      width: 48px; height: auto;
+      opacity: 0.07;
+      z-index: 0;
+    }
+    /* Copilot-generated extra motif 4 (fork-spoon doodle) */
+    .bg-decor8 {
+      right: 7%; top: 40%;
+      width: 54px; height: auto;
+      opacity: 0.09;
+      z-index: 0;
+    }
+    /* Copilot-generated extra motif 5 (mini mascot) */
+    .bg-decor9 {
+      left: 50%; bottom: 3%;
+      width: 43px; height: auto;
+      opacity: 0.08;
+      transform: translateX(-50%) scale(-1,1);
+      z-index: 0;
+    }
+    /* Grid and link styles */
+    .logo-grid-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      z-index: 1;
+      position: relative;
+    }
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 32px 28px;
+      background: rgba(255,255,255,0.86);
+      padding: 36px 24px;
+      border-radius: 28px;
+      box-shadow: 0 4px 40px 0 rgba(180,140,60,0.08);
+      max-width: 900px;
+      margin: 0 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .logo-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #262626;
+      gap: 12px;
+      font-size: 1.06rem;
+      font-weight: 500;
+      transition: transform 0.15s, box-shadow 0.18s;
+    }
+    .logo-link:focus,
+    .logo-link:hover {
+      transform: translateY(-6px) scale(1.06);
+      box-shadow: 0 6px 24px rgba(80,48,12,0.14);
+      z-index: 2;
+    }
+    .logo-oval {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(130, 90, 20, 0.07);
+      margin-bottom: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Fərqli loqo arxa fonları */
+    .logo-drive { border: 2px solid #f4b400; }
+    .logo-tiktok { background: linear-gradient(135deg, #010101 70%, #25f4ee 100%); color: #fff; }
+    .logo-instagram { background: radial-gradient(circle at 30% 110%, #fdc468 0%, #df4996 100%); color: #fff;}
+    .logo-threads { background: #000; color: #fff;}
+    .logo-maps { background: #34a853; color: #fff;}
+    .logo-waze { background: #33ccff; color: #fff;}
+    .logo-boltfood { background: #32d074; }
+    .logo-wolt { background: #009de0; }
+
+    /* SVG ölçüləri */
+    .logo-oval svg { width: 52px; height: 52px; display: block;}
+    .logo-boltfood svg, .logo-wolt svg { width: 56px; height: 56px;}
+    .logo-drive svg { width: 44px; height: 44px;}
+
+    .menu-label {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #a86a1c;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    @media (max-width: 1000px) {
+      .logo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .logo-grid { grid-template-columns: 1fr 1fr; grid-gap: 18px 10px; padding: 16px 4px;}
+      .logo-oval { width: 60px; height: 60px; }
+      .logo-oval svg { width: 33px; height: 33px;}
+      .logo-boltfood svg, .logo-wolt svg { width: 38px; height: 38px;}
+      .logo-drive svg { width: 28px; height: 28px;}
+    }
+    @media (max-width: 450px) {
+      .logo-grid { grid-template-columns: 1fr; }
+      .logo-link { font-size: 0.97rem;}
+      .logo-oval { width: 54px; height: 54px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Dekorativ arxa plan şəkilləri -->
+  <img src="image3" class="bg-decor bg-main" alt="Plovüstü maskot">
+  <img src="image4" class="bg-decor bg-decor1" alt="Takeaway çanta">
+  <img src="image5" class="bg-decor bg-decor2" alt="Düyü kasası">
+  <img src="image6" class="bg-decor bg-decor3" alt="Lunch bag">
+  <img src="image4" class="bg-decor bg-decor4" alt="Takeaway çanta - kiçik">
+  <!-- Copilot extra motifs (SVG inline for performance & visual consistency) -->
+  <svg class="bg-decor bg-decor5" viewBox="0 0 48 48"><g>
+    <rect x="8" y="18" width="4" height="18" rx="1" fill="#b2b287"/><rect x="18" y="12" width="4" height="24" rx="1" fill="#b2b287"/>
+    <rect x="28" y="18" width="4" height="18" rx="1" fill="#b2b287"/><ellipse cx="20" cy="38" rx="8" ry="3" fill="#b2b287" opacity="0.12"/>
+  </g></svg>
+  <svg class="bg-decor bg-decor6" viewBox="0 0 60 38"><ellipse cx="30" cy="27" rx="27" ry="9" fill="#e2c2b3" opacity="0.18"/><ellipse cx="30" cy="14" rx="17" ry="12" fill="#f4e0b3"/></svg>
+  <svg class="bg-decor bg-decor7" viewBox="0 0 32 32"><polygon points="16,2 18,14 30,16 18,18 16,30 14,18 2,16 14,14" fill="#e7c47a" opacity="0.33"/></svg>
+  <svg class="bg-decor bg-decor8" viewBox="0 0 38 38"><rect x="9" y="6" width="4" height="26" rx="1.5" fill="#b2b287"/><rect x="25" y="6" width="4" height="26" rx="1.5" fill="#b2b287"/></svg>
+  <img src="image3" class="bg-decor bg-decor9" alt="Mini maskot">
+  <div class="logo-grid-container">
+    <div class="logo-grid">
+      <!-- Menyu (Google Drive) -->
+      <a href="https://drive.google.com/drive/u/4/folders/157WPY7RhOWpZxkBOlVOOy3wyvTFDQfN7" class="logo-link" target="_blank" title="Menyu">
+        <span class="logo-oval logo-drive">
+          <svg viewBox="0 0 48 48">
+            <polygon fill="#fbbc04" points="21,6 3,39 13.5,39 31.5,6"/>
+            <polygon fill="#4285f4" points="34.5,39 45,39 27,6 16.5,6"/>
+            <polygon fill="#34a853" points="3,39 24,39 34.5,39 13.5,39"/>
+          </svg>
+        </span>
+        <span class="menu-label">Menyu</span>
+      </a>
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@plovustu?_t=ZS-8x1fy8x06Nt&_r=1" class="logo-link" target="_blank" title="TikTok">
+        <span class="logo-oval logo-tiktok">
+          <i class="fab fa-tiktok" style="font-size:2.2em"></i>
+        </span>
+        <span>TikTok</span>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/plovustu" class="logo-link" target="_blank" title="Instagram">
+        <span class="logo-oval logo-instagram">
+          <i class="fab fa-instagram" style="font-size:2.2em"></i>
+        </span>
+        <span>Instagram</span>
+      </a>
+      <!-- Threads -->
+      <a href="https://www.threads.com/@plovustu" class="logo-link" target="_blank" title="Threads">
+        <span class="logo-oval logo-threads">
+          <i class="fab fa-at" style="font-size:2.2em"></i>
+        </span>
+        <span>Threads</span>
+      </a>
+      <!-- Google Maps -->
+      <a href="https://maps.app.goo.gl/M3nJq2KtZuyHvEeK7" class="logo-link" target="_blank" title="Google Maps">
+        <span class="logo-oval logo-maps">
+          <i class="fas fa-map-marker-alt" style="font-size:2.2em"></i>
+        </span>
+        <span>Google Maps</span>
+      </a>
+      <!-- Waze -->
+      <a href="https://waze.com/ul/htp5my0pcn" class="logo-link" target="_blank" title="Waze">
+        <span class="logo-oval logo-waze">
+          <i class="fab fa-waze" style="font-size:2.2em"></i>
+        </span>
+        <span>Waze</span>
+      </a>
+      <!-- Bolt Food (rəsmi SVG logo) -->
+      <a href="https://food.bolt.eu/az-AZ/335/p/144771-plov%C3%BCst%C3%BC" class="logo-link" target="_blank" title="Bolt Food">
+        <span class="logo-oval logo-boltfood">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bolt Food logo">
+            <rect width="64" height="64" rx="16" fill="#32D074"/>
+            <g>
+              <text x="50%" y="38%" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="19" fill="#fff" font-weight="bold" dy="0.35em">Bolt</text>
+              <text x="50%" y="76%" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="19" fill="#fff" font-weight="bold" dy="0.35em">Food</text>
+            </g>
+          </svg>
+        </span>
+        <span>Bolt Food</span>
+      </a>
+      <!-- Wolt (rəsmi SVG script logo) -->
+      <a href="https://wolt.com/az/aze/baku/restaurant/plovustu" class="logo-link" target="_blank" title="Wolt">
+        <span class="logo-oval logo-wolt">
+          <svg viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg" aria-label="Wolt logo">
+            <rect width="120" height="48" rx="14" fill="#009DE0"/>
+            <text x="50%" y="63%" text-anchor="middle" font-family="'Pacifico', 'Comic Sans MS', cursive, sans-serif" font-size="32" fill="#fff">Wolt</text>
+          </svg>
+        </span>
+        <span>Wolt</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
